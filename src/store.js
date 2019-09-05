@@ -6,40 +6,52 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    PackageList: [
-      { wayBillNum: "", addressee: "", telephone: "", weight: "" }
-    ]
+    currentFilter: "unbooked",
+    todoList: [{
+      wayBillNum: "1518551",
+      addressee: "小灰灰",
+      telephone: "110",
+      weight: "3kg",
+      state: "unbooked",
+      appointmentTime: "2018/05/16"
+    }]
 
   },
+
+  getters: {
+    filteredTodoList: function (state) {
+      let filteredTodoList = [];
+      for (let i = 0; i < state.todoList.length; i++) {
+        if (state.currentFilter === 'all' || state.currentFilter === state.todoList[i].status) {
+          filteredTodoList.push(state.todoList[i])
+        }
+      }
+      return filteredTodoList;
+    }
+  },
+
   mutations: {
-    initTodos: function (state, todods) {
-      state.PackageList = todods;
-  }
-  },
-  actions: {
-    updateTodos(context, obj) {
-      const url = "http://localhost:8080/expressDelivery";
-      //put
-      console.log(53, obj)
-      axios
-        .put(url + "/" + obj.id, {
-          content: obj.inputtingItem,
-          status: "active"
-        })
-        .then(function (response) {
-          context.dispath("fetchTodos");
-        })
-        .catch(function (error) {
-          console.log(error.response);
-        });
+    changeFilter: function (state, currentFilter) {
+      state.currentFilter = currentFilter;
     },
+    initTodos: function (state, todods) {
+      state.todoList = todods;
+    }
+  },
 
-    createTodos(context, inputtingItem) {
-      const url = "http://localhost:8080/expressDelivery";
+  actions: {
+    createTodos(context, obj) {
+      const url = "http://localhost:8081/expressDelivery";
+      console.log(45,obj);
       //post
       axios
-        .post(url, { 
-          wayBillNum: "", addressee: "", telephone: "", weight: "" 
+        .post(url, {
+          wayBillNum: obj.wayBillNum,
+          addressee: obj.addressee,
+          telephone: obj.telephone,
+          weight: obj.weight,
+          state: "unbooked",
+          appointmentTime: ""
         })
         .then(function (response) {
           context.dispath("fetchTodos");
@@ -50,7 +62,8 @@ export default new Vuex.Store({
     },
 
     fetchTodos(context) {
-      const url = "http://localhost:8080/expressDelivery";
+      const url = "http://localhost:8081/expressDelivery";
+      //get
       axios
         .get(url)
         .then(function (response) {

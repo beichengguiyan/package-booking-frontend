@@ -2,11 +2,22 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/submit">Submit</router-link> |
+      <router-link to="/todoList">TodoList</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+
+
+<script>
+export default {
+  name: "app",
+  created: function() {
+    this.$store.dispatch("fetchTodos");
+  }
+};
+</script>
 
 <style lang="scss">
 #app {

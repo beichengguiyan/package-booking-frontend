@@ -4,7 +4,7 @@
     <a-form-item label="运单号" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
       <a-input
         v-decorator="[
-          '运单号',
+          'wayBillNum',
           {rules: [{ required: true, message: '请输入运单号!' }]}
         ]"
       />
@@ -13,7 +13,7 @@
     <a-form-item label="收件人" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
       <a-input
         v-decorator="[
-          '收件人',
+          'addressee',
           {rules: [{ required: true, message: '请输入收件人!' }]}
         ]"
       />
@@ -22,7 +22,7 @@
     <a-form-item label="电话" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
       <a-input
         v-decorator="[
-          '电话',
+          'telephone',
           {rules: [{ required: true, message: '请输入电话!' }]}
         ]"
       />
@@ -31,7 +31,7 @@
     <a-form-item label="重量" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
       <a-input
         v-decorator="[
-          '重量',
+          'weight',
           {rules: [{ required: true, message: '请输入重量!' }]}
         ]"
       />
