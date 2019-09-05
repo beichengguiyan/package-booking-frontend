@@ -59,6 +59,7 @@ export default {
         if (!err) {
           console.log("Received values of form: ", values);
           this.$store.dispatch("createTodos",values);
+          
         }
       });
     }

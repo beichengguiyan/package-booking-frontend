@@ -19,6 +19,7 @@ const columns = [
   { title: "", key: "action", scopedSlots: { customRender: "action" } }
 ];
 
+console.log(22,store.state.TodoList);
 const data = store.getters.filteredTodoList;
 // this.$store.getters.filteredTodoList
 

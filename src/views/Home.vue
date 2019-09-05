@@ -2,7 +2,6 @@
   <div class="home">
     <HelloWorld />
     <TodoListFilter />
-    <Field />
     <TodoList />
   </div>
 </template>

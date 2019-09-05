@@ -22,7 +22,7 @@ export default new Vuex.Store({
     filteredTodoList: function (state) {
       let filteredTodoList = [];
       for (let i = 0; i < state.todoList.length; i++) {
-        if (state.currentFilter === 'all' || state.currentFilter === state.todoList[i].status) {
+        if (state.currentFilter === 'all' || state.currentFilter === state.todoList[i].state) {
           filteredTodoList.push(state.todoList[i])
         }
       }
@@ -42,7 +42,7 @@ export default new Vuex.Store({
   actions: {
     createTodos(context, obj) {
       const url = "http://localhost:8081/expressDelivery";
-      console.log(45,obj);
+      console.log(45, obj);
       //post
       axios
         .post(url, {

@@ -1,10 +1,13 @@
 <template>
     <div class="filter">
         <a>菜鸟驿站</a>
+        
         <a-button @click.prevent="handleFilter('all')" :class="{active:currentFilter=='all'}">ALL</a-button>
         <a-button @click.prevent="handleFilter('appointmented')" :class="{active:currentFilter=='appointmented'}">已预约</a-button>
         <a-button @click.prevent="handleFilter('picked')" :class="{active:currentFilter=='picked'}">已取件</a-button>
         <a-button @click.prevent="handleFilter('unbooked')" :class="{active:currentFilter=='unbooked'}">未预约</a-button>
+        <a-button type="dashed"  @click="handleRefresh">刷新</a-button>
+
     </div>
 </template>
 
@@ -22,6 +25,10 @@
             handleFilter: function (currentFilter) {
                 // this.$store.state.currentFilter = currentFilter;
                 this.$store.commit("changeFilter", currentFilter);
+                console.log(25,currentFilter)
+            },
+            handleRefresh: function () {
+             this.$store.dispatch("fetchTodos");
             }
         }
     }
