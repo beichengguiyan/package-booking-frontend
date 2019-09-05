@@ -1,5 +1,6 @@
 <template>
     <div class="filter">
+        <a>菜鸟驿站</a>
         <a-button @click.prevent="handleFilter('all')" :class="{active:currentFilter=='all'}">ALL</a-button>
         <a-button @click.prevent="handleFilter('appointmented')" :class="{active:currentFilter=='appointmented'}">已预约</a-button>
         <a-button @click.prevent="handleFilter('picked')" :class="{active:currentFilter=='picked'}">已取件</a-button>

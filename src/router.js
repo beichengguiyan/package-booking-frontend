@@ -5,6 +5,7 @@ import Submit from './views/Submit.vue'
 import TodoList from './views/TodoList.vue'
 import Appointment from './views/Appointment.vue'
 
+
 Vue.use(Router)
 
 export default new Router({

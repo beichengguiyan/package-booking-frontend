@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-   <HelloWorld />
+    <HelloWorld />
+    <TodoListFilter />
+    <Field />
     <TodoList />
   </div>
 </template>
@@ -9,11 +11,13 @@
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
 import TodoList from "../views/TodoList.vue";
+import TodoListFilter from "../views/TodoListFilter.vue";
 export default {
   name: "home",
   components: {
     HelloWorld,
-    TodoList
+    TodoList,
+    TodoListFilter,
   }
 };
 </script>

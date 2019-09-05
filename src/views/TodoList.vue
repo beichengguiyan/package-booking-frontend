@@ -1,37 +1,35 @@
 <template>
-  <ul class="items">
-    <TodoListFilter />
-    <Field />
-    <template v-for="(item,index) in filteredTodoList">
-      <li :key="index" :class="item.status">
-        <a href class="wayBillNum">{{item.wayBillNum}}</a>
-        <a href class="addressee">{{item.addressee}}</a>
-        <a href class="telephone">{{item.telephone}}</a>
-        <a href class="state">{{item.state}}</a>
-        <a href class="appointmentTime">{{item.appointmentTime}}</a>
-      </li>
-    </template>
-  </ul>
+  <a-table :columns="columns" :dataSource="data">
+    <span slot="action" slot-scope="text, record">
+      <a-button href="javascript:;">Invite{{record.name}}</a-button>
+    </span>
+  </a-table>
 </template>
+
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import TodoListFilter from "../views/TodoListFilter.vue";
-import Field from "../views/Field.vue";
+import store from '../store'
+const columns = [
+  { title: "订单号", dataIndex: "wayBillNum" },
+  { title: "收件人", dataIndex: "addressee" },
+  { title: "电话", dataIndex: "telephone" },
+  { title: "状态", dataIndex: "state" },
+  { title: "预约时间", dataIndex: "appointmentTime" },
+  { title: "", key: "action", scopedSlots: { customRender: "action" } }
+];
+
+const data = store.getters.filteredTodoList;
+// this.$store.getters.filteredTodoList
 
 export default {
   name: "todo-list",
-  components:{
-      TodoListFilter,
-      Field
-  },
-  computed: {
-    filteredTodoList: function() {
-      return this.$store.getters.filteredTodoList;
-    }
+  components: {},
+  data() {
+    return {
+      data,
+      columns
+    };
   }
 };
 </script>
-
-<style scoped>
-</style>
