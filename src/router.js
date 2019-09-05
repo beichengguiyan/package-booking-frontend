@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Submit from './views/Submit.vue'
 import TodoList from './views/TodoList.vue'
-
+import Appointment from './views/Appointment.vue'
 
 Vue.use(Router)
 
@@ -25,6 +25,11 @@ export default new Router({
       path: '/todoList',
       name: 'todoList',
       component: TodoList
+    },
+    {
+      path: '/appointment',
+      name: 'appointment',
+      component: Appointment
     }
   ]
 })

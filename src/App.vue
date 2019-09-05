@@ -2,8 +2,8 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/submit">Submit</router-link> |
-      <router-link to="/todoList">TodoList</router-link>
+      <router-link to="/submit">包裹入库</router-link> |
+      <router-link to="/appointment">预约取件</router-link>
     </div>
     <router-view/>
   </div>
