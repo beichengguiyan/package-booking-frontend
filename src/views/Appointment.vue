@@ -10,29 +10,11 @@
       />
     </a-form-item>
 
-    <a-form-item label="收件人" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
+    <a-form-item label="取件时间" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
       <a-input
         v-decorator="[
-          'addressee',
-          {rules: [{ required: true, message: '请输入收件人!' }]}
-        ]"
-      />
-    </a-form-item>
-
-    <a-form-item label="电话" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
-      <a-input
-        v-decorator="[
-          'telephone',
-          {rules: [{ required: true, message: '请输入电话!' }]}
-        ]"
-      />
-    </a-form-item>
-
-    <a-form-item label="重量" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
-      <a-input
-        v-decorator="[
-          'weight',
-          {rules: [{ required: true, message: '请输入重量!' }]}
+          'appointmentTime',
+          {rules: [{ required: true, message: '请输入取件时间!' }]}
         ]"
       />
     </a-form-item>
